@@ -76,3 +76,82 @@
     background:#e6e6ff;
 
 }
+.task-form-section{
+
+    background:white;
+
+    margin:30px;
+
+    padding:25px;
+
+    border-radius:12px;
+
+    box-shadow:0 4px 10px rgba(0,0,0,.1);
+
+}.task-form-section h2{
+
+    margin-bottom:20px;
+
+    color:#4f46e5;
+
+}#task-form{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:18px;
+
+}.form-group{
+
+    display:flex;
+
+    flex-direction:column;
+
+}label{
+
+    margin-bottom:8px;
+
+    font-weight:bold;
+
+}input,
+select{
+
+    padding:12px;
+
+    border:1px solid #ccc;
+
+    border-radius:8px;
+
+    font-size:1rem;
+
+}input:focus,
+select:focus{
+
+    outline:none;
+
+    border-color:#4f46e5;
+
+}#add-task-btn{
+
+    background:#4f46e5;
+
+    color:white;
+
+    border:none;
+
+    padding:14px;
+
+    border-radius:8px;
+
+    font-size:1rem;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}#add-task-btn:hover{
+
+    background:#3d36c5;
+
+}
