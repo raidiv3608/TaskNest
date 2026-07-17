@@ -150,10 +150,74 @@
 
 </section>
 
-}
+<!-- ================= Controls ================= -->
+
+<section class="controls">
+
+    <input
+        type="text"
+        id="search-task"
+        placeholder="🔍 Search tasks...">
+
+    <select id="filter-task">
+
+        <option value="all">All Tasks</option>
+
+        <option value="pending">Pending</option>
+
+        <option value="completed">Completed</option>
+
+        <option value="high">High Priority</option>
+
+        <option value="medium">Medium Priority</option>
+
+        <option value="low">Low Priority</option>
+
+    </select>
+
+    <select id="sort-task">
+
+        <option value="newest">Newest First</option>
+
+        <option value="oldest">Oldest First</option>
+
+        <option value="alphabetical">Alphabetical</option>
+
+        <option value="duedate">Due Date</option>
+
+    </select>
+
+</section>
+<!-- ================= Task List ================= -->
+
+<section class="task-list-section">
+
+    <h2>Your Tasks</h2>
+
+    <div id="task-container">
+
+        <div class="empty-state">
+
+            <h3>No Tasks Yet</h3>
+
+            <p>Add your first task to get started.</p>
+
+        </div>
+
+    </div>
+
+</section>
 
 </main>
+<footer>
 
+    <p>
+
+        © 2026 TaskNest | Built using HTML, CSS & JavaScript
+
+    </p>
+
+</footer>
 
 </body>
 
