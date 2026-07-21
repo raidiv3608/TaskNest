@@ -35,11 +35,86 @@ function renderTasks() {
     <p><strong>Status:</strong> ${
         task.completed ? "Completed ✅" : "Pending ⏳"
     }</p>
+    <div class="task-actions">
+
+    <button
+    class="complete-btn"
+    data-id="${task.id}">
+    ${task.completed ? "Undo" : "Complete"}
+</button>
+
+<button
+    class="delete-btn"
+    data-id="${task.id}">
+    Delete
+</button>
+    </div>
 `;
 
         taskContainer.appendChild(taskCard);
 
     });
+    const deleteButtons = document.querySelectorAll(".delete-btn");
+
+deleteButtons.forEach(function(button) {
+
+    button.addEventListener("click", function () {
+
+        const taskId = Number(button.dataset.id);
+
+        tasks = tasks.filter(function(task) {
+            return task.id !== taskId;
+        });
+
+        refreshUI();
+    });
+});
+
+const completeButtons = document.querySelectorAll(".complete-btn");
+completeButtons.forEach(function(button) {
+
+    button.addEventListener("click", function() {
+
+        const taskId = Number(button.dataset.id);
+
+        const task = tasks.find(function(task) {
+
+            return task.id === taskId;
+
+        });
+
+        task.completed = !task.completed;
+
+
+    refreshUI();
+
+    });
+
+});
+
+}
+function updateDashboard(){
+    totalTasks.textContent = tasks.length;
+    const completedCount = tasks.filter(function(task) {
+    return task.completed;
+}).length;
+completedTasks.textContent = completedCount;
+
+const pendingCount = tasks.length - completedCount;
+
+pendingTasks.textContent = pendingCount;
+const progressPercentage =
+    tasks.length === 0
+        ? 0
+        : (completedCount / tasks.length) * 100;
+        progress.textContent = `${progressPercentage.toFixed(0)}%`;
+}
+
+function refreshUI() {
+
+    renderTasks();
+
+    updateDashboard();
 
 }
 taskForm.addEventListener("submit", function (event) {
@@ -66,7 +141,6 @@ taskForm.addEventListener("submit", function (event) {
     };
 
     tasks.push(task);
-
-    renderTasks();
+    refreshUI();
 
 });

@@ -251,3 +251,38 @@ footer {
     margin:6px 0;
 
 }
+.task-actions{
+    margin-top:15px;
+    display:flex;
+    gap:10px;
+}
+
+.complete-btn,
+.delete-btn{
+
+    border:none;
+    padding:10px 16px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:600;
+    transition:0.3s;
+
+}
+
+.complete-btn{
+    background:#16a34a;
+    color:white;
+}
+
+.complete-btn:hover{
+    background:#15803d;
+}
+
+.delete-btn{
+    background:#dc2626;
+    color:white;
+}
+
+.delete-btn:hover{
+    background:#b91c1c;
+}
