@@ -286,3 +286,35 @@ footer {
 .delete-btn:hover{
     background:#b91c1c;
 }
+#error-message {
+
+    color: red;
+
+    font-size: 14px;
+
+    margin-top: 8px;
+
+    font-weight: 500;
+
+    display: none;
+
+}
+
+.empty-state {
+
+    text-align: center;
+    padding: 40px 20px;
+
+}
+
+.empty-state h3 {
+
+    margin-bottom: 10px;
+
+}
+
+.empty-state p {
+
+    color: #777;
+
+}

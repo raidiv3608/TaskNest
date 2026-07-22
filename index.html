@@ -145,6 +145,7 @@
             + Add Task
 
         </button>
+        <p id="error-message"></p>
 
     </form>
 
@@ -156,25 +157,25 @@
 
     <input
         type="text"
-        id="search-task"
+        id="searchInput"
         placeholder="🔍 Search tasks...">
 
-    <select id="filter-task">
+    <select id="status-filter">
 
-        <option value="all">All Tasks</option>
+    <option value="all">All Tasks</option>
+    <option value="active">Pending</option>
+    <option value="completed">Completed</option>
 
-        <option value="pending">Pending</option>
+</select>
 
-        <option value="completed">Completed</option>
+<select id="priority-filter">
 
-        <option value="high">High Priority</option>
+    <option value="all">All Priorities</option>
+    <option value="High">High Priority</option>
+    <option value="Medium">Medium Priority</option>
+    <option value="Low">Low Priority</option>
 
-        <option value="medium">Medium Priority</option>
-
-        <option value="low">Low Priority</option>
-
-    </select>
-
+</select>
     <select id="sort-task">
 
         <option value="newest">Newest First</option>
