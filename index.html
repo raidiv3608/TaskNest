@@ -41,7 +41,8 @@
 
     </header>
 
-    <!-- ================= HEADER END ================= --><main>
+    <!-- ================= HEADER END ================= -->
+     <main>
 
     <!-- ================= Dashboard ================= -->
 
@@ -73,11 +74,17 @@
 
         <div class="dashboard-card">
 
-            <h3>Progress</h3>
+    <h3>Progress</h3>
 
-            <p id="progress">0%</p>
+    <p id="progress">0%</p>
 
-        </div>
+    <div class="progress-bar">
+
+        <div class="progress-fill" id="progress-fill"></div>
+
+    </div>
+
+</div>
 
     </section>
     <!-- ================= Task Form ================= -->
@@ -145,7 +152,9 @@
             + Add Task
 
         </button>
-        <p id="error-message"></p>
+        <p id="error-message"
+           aria-live="polite">
+        </p>
 
     </form>
 
@@ -160,6 +169,9 @@
         id="searchInput"
         placeholder="🔍 Search tasks...">
 
+    <label for="status-filter" class="visually-hidden">
+    Filter by Status
+</label>    
     <select id="status-filter">
 
     <option value="all">All Tasks</option>
@@ -168,6 +180,9 @@
 
 </select>
 
+<label for="priority-filter" class="visually-hidden">
+    Filter by Priority
+</label>
 <select id="priority-filter">
 
     <option value="all">All Priorities</option>
@@ -176,6 +191,9 @@
     <option value="Low">Low Priority</option>
 
 </select>
+<label for="sort-task" class="visually-hidden">
+    Sort Tasks
+</label>
     <select id="sort-task">
 
         <option value="newest">Newest First</option>
@@ -219,7 +237,10 @@
     </p>
 
 </footer>
+<div id="toast"></div>
 <script src="js/script.js"></script>
+
+
 
 </body>
 

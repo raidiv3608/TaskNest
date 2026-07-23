@@ -13,11 +13,10 @@ const statusFilter = document.getElementById("status-filter");
 const priorityFilter = document.getElementById("priority-filter");
 const sortTask = document.getElementById("sort-task");
 const errorMessage = document.getElementById("error-message");
+const toast = document.getElementById("toast");
+const themeToggle = document.getElementById("theme-toggle");
+const progressFill = document.getElementById("progress-fill");
 
-console.log(taskForm);
-console.log(taskNameInput);
-console.log(prioritySelect);
-console.log(dueDateInput);
 
 function showError(message) {
 
@@ -77,6 +76,26 @@ function validateTask(taskName, priority, dueDate) {
         message: ""
 
     };
+
+}
+
+function showToast(message, type) {
+
+    toast.textContent = message;
+
+    toast.classList.remove("success", "error");
+
+    toast.classList.add(type);
+
+    toast.classList.add("show");
+
+    setTimeout(function () {
+
+        toast.classList.remove("show");
+
+        toast.classList.remove("success", "error");
+
+    }, 3000);
 
 }
 
@@ -155,10 +174,12 @@ deleteButtons.forEach(function(button) {
         });
         saveTasks();
         refreshUI();
+        showToast("Task deleted successfully!", "success");
     });
 });
 
 const completeButtons = document.querySelectorAll(".complete-btn");
+
 completeButtons.forEach(function(button) {
 
     button.addEventListener("click", function() {
@@ -173,9 +194,19 @@ completeButtons.forEach(function(button) {
 
         task.completed = !task.completed;
 
+        saveTasks();
 
-    saveTasks();    
-    refreshUI();
+        refreshUI();
+
+        if (task.completed) {
+
+            showToast("Task marked as completed!", "success");
+
+        } else {
+
+            showToast("Task marked as pending!", "success");
+
+        }
 
     });
 
@@ -301,21 +332,29 @@ function updateDisplayedTasks() {
 }
 
 
-function updateDashboard(){
+function updateDashboard() {
+
     totalTasks.textContent = tasks.length;
+
     const completedCount = tasks.filter(function(task) {
-    return task.completed;
-}).length;
-completedTasks.textContent = completedCount;
+        return task.completed;
+    }).length;
 
-const pendingCount = tasks.length - completedCount;
+    completedTasks.textContent = completedCount;
 
-pendingTasks.textContent = pendingCount;
-const progressPercentage =
-    tasks.length === 0
-        ? 0
-        : (completedCount / tasks.length) * 100;
-        progress.textContent = `${progressPercentage.toFixed(0)}%`;
+    const pendingCount = tasks.length - completedCount;
+
+    pendingTasks.textContent = pendingCount;
+
+    const progressPercentage =
+        tasks.length === 0
+            ? 0
+            : (completedCount / tasks.length) * 100;
+
+    progress.textContent = `${progressPercentage.toFixed(0)}%`;
+
+    progressFill.style.width = `${progressPercentage}%`;
+
 }
 function saveTasks() {
 
@@ -388,6 +427,7 @@ clearError();
     saveTasks();
     refreshUI();
     resetTaskForm();
+    showToast("Task added successfully!", "success");
 
 });
 searchInput.addEventListener("input", function (event) {
@@ -421,5 +461,44 @@ sortTask.addEventListener("change", function (event) {
     updateDisplayedTasks();
 
 });
+
+themeToggle.addEventListener("click", function () {
+
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+
+        themeToggle.textContent = "☀️ Light Mode";
+
+    } else {
+
+        themeToggle.textContent = "🌙 Dark Mode";
+
+    }
+    if (document.body.classList.contains("dark-mode")) {
+
+    localStorage.setItem("theme", "dark");
+
+} else {
+
+    localStorage.setItem("theme", "light");
+
+}
+
+});
+
+const savedTheme = localStorage.getItem("theme");
+
+if (savedTheme === "dark") {
+
+    document.body.classList.add("dark-mode");
+
+    themeToggle.textContent = "☀️ Light Mode";
+
+} else {
+
+    themeToggle.textContent = "🌙 Dark Mode";
+
+}
 
 loadTasks();
