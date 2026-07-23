@@ -72,11 +72,11 @@ TaskNest
 
 ### ☀️ Light Mode
 
-> *(Add a screenshot here after deployment.)*
+> ![alt text](<Screenshot 2026-07-23 223641.png>)
 
 ### 🌙 Dark Mode
 
-> *(Add a screenshot here after deployment.)*
+> ![alt text](<Screenshot 2026-07-23 223650.png>)
 
 ---
 
