@@ -8,7 +8,7 @@ Manage your daily tasks with ease using features like search, filters, sorting, 
 
 ## 🌐 Live Demo
 
-The live demo will be available after deployment using GitHub Pages.
+https://raidiv3608.github.io/TaskNest/
 
 
 ---
